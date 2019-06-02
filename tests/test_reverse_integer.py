@@ -10,7 +10,13 @@ from src.reverse_integer import ReverseInteger
 s1_correct = [
     (123, 321),
     (-123, -321),
-    (120, 21)
+    (120, 21),
+    (-120, -21),
+    (0, 0),
+    ((2 ** 31) - 1, 0),
+    (-2 ** 31, 0),
+    (2 ** 34, 0),
+    (-2 ** 33, 0)
 ]
 
 
@@ -24,8 +30,4 @@ def sample_ri():
 def test_s1_correctness(sample_ri, num, expected):
     """Tests correctness of reverse integer solution."""
     assert sample_ri.solution1(num) == expected
-
-
-def test_s1_overflow(sample_ri):
-    """Tests overflow conditions and return value."""
 
