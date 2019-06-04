@@ -8,7 +8,7 @@ import pytest
 from src.is_palindrome import IsPalindrome
 
 
-test_cases1 = [
+test_data1 = [
     (121, True),
     (0, True),
     (1, True),
@@ -17,7 +17,7 @@ test_cases1 = [
 ]
 
 
-@pytest.mark.parametrize('num,expected', test_cases1)
+@pytest.mark.parametrize('num,expected', test_data1)
 def test_s1(num, expected):
     """Tests correctness, boundaries, and failure of IsPalindrome"""
     sample = IsPalindrome()
