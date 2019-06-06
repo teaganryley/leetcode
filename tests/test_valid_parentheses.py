@@ -8,7 +8,11 @@ import pytest
 from src.valid_parentheses import ValidParentheses
 
 test_data1 = [
-    ('', True)
+    ('', True),
+    ('()', True),
+    ('()[]{}', True),
+    ('([)]', False),
+    ('){', False)
 ]
 
 
@@ -16,8 +20,3 @@ test_data1 = [
 def test_s1(input_str, expected):
     sample = ValidParentheses()
     assert sample.solution1(input_str) == expected
-
-
-"""
--filter out strings with an odd number of characters?
-"""
