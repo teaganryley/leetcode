@@ -3,7 +3,6 @@ class CommonPrefix:
     Solution for https://leetcode.com/problems/longest-common-prefix/
     """
 
-
     def find_prefix(self, my_list):
         """Determine longest common prefix in given array."""
         #handle empty lists
@@ -21,10 +20,6 @@ class CommonPrefix:
     
     def compare(self, my_list, substring):
         """Recursively compare substring to elements of array."""
-        #debug
-        print(substring)
-        print(my_list)
-
         #base case for recursion
         if substring == "": return ""
 
