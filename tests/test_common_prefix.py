@@ -1,0 +1,22 @@
+import os
+import sys
+
+# ensures pytest will locate project without having to run setup.py
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+import pytest
+from src.common_prefix import CommonPrefix
+
+test_data1 = [
+    (["flower", "flow", "flight"], "fl"),
+    (["dog", "racecar", "car"], ""),
+    (["", "", ""], ""),
+    ([],"")
+]
+
+@pytest.mark.parametrize('test_value,expected', test_data1)
+def test_find_prefix(test_value, expected):
+    """Tests correctness of smallest common prefix."""
+    sample = CommonPrefix()
+    assert sample.find_prefix(test_value) == expected
+
