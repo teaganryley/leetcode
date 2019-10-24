@@ -11,6 +11,7 @@ test_data1 = [
     (["flower", "flow", "flight"], "fl"),
     (["dog", "racecar", "car"], ""),
     (["", "", ""], ""),
+    (["leets", "leetcode", "leet", "leeds"], "lee"),
     ([],"")
 ]
 
@@ -18,5 +19,5 @@ test_data1 = [
 def test_find_prefix(test_value, expected):
     """Tests correctness of largest common prefix."""
     sample = CommonPrefix()
-    assert sample.find_prefix(test_value) == expected
+    assert sample.solution1(test_value) == expected
 

@@ -3,34 +3,19 @@ class CommonPrefix:
     Solution for https://leetcode.com/problems/longest-common-prefix/
     """
 
-    def find_prefix(self, my_list):
-        """Determine longest common prefix in given array."""
+    def solution1(self, my_list):
+        """Basic solution using iteration."""   
         #handle empty lists
-        if len(my_list)== 0: 
-            return ""
+        if len(my_list) == 0: return ""
         
-        #locate smallest string in array
-        substring = min(my_list,key=len)
+        #set prefix to first string in list, remove
+        prefix = my_list[0]
+        my_list.remove(prefix)
 
-        #remove smallest string from array
-        my_list.remove(substring)
-
-        return self.compare(my_list, substring)
-
-    
-    def compare(self, my_list, substring):
-        """Recursively compare substring to elements of array."""
-        #base case for recursion
-        if substring == "": return ""
-
-        counter = 0
-        for string in my_list:
-            if substring == string[:len(substring)]:
-                counter+=1
+        for my_string in my_list:
+            while my_string.find(prefix[:len(prefix)]): 
+                prefix = prefix[:-1]
+                if prefix == "": return ""   
         
-        if counter == len(my_list):
-            return substring
-        else:
-            return self.compare(my_list, substring[:-1])
-    
-        
+        return prefix
+
