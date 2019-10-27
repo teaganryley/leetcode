@@ -1,3 +1,5 @@
+from .helpers import trie_node
+
 class CommonPrefix:
     """
     Solution for https://leetcode.com/problems/longest-common-prefix/
@@ -18,4 +20,18 @@ class CommonPrefix:
                 if prefix == "": return ""   
         
         return prefix
+
+    def solution2(self, my_list):
+        """
+        Maps list of words to prefix tree (trie) structure, then traverses structure to find longest
+        common prefix. 
+        """
+        
+        # instantiate root of trie
+        root = trie_node.TrieNode("root")
+
+        for word in my_list:
+            trie_node.insert(root, word)
+        
+        return trie_node.find_lcp(root, len(my_list))
 

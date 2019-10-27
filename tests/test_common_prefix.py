@@ -16,8 +16,14 @@ test_data1 = [
 ]
 
 @pytest.mark.parametrize('test_value,expected', test_data1)
-def test_find_prefix(test_value, expected):
+def test_solution1(test_value, expected):
     """Tests correctness of largest common prefix."""
     sample = CommonPrefix()
     assert sample.solution1(test_value) == expected
+
+@pytest.mark.parametrize('test_value,expected', test_data1)
+def test_solution2(test_value, expected):
+    """Tests correctness of largest common prefix."""
+    sample = CommonPrefix()
+    assert sample.solution2(test_value) == expected
 
